@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import moment from 'moment';
 import { style, keyframes } from 'typestyle';
+
+import TemplateEditor from 'containers/TemplateEditor';
 
 export interface IAppProps {}
 export interface IAppState {}
@@ -16,9 +17,7 @@ export default class App extends Component<IAppProps, IAppState> {
 
   render() {
     return (
-      <h1 className={Styles.welcomeMessage}>
-        {`Hello, world`}
-      </h1>
+      <TemplateEditor />
     );
   }
 }
