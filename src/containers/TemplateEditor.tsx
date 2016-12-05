@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EditableLabel from 'components/EditableLabel';
+import TemplateHeader from 'components/TemplateHeader';
 
 export interface ITemplateEditorProps {}
 
@@ -38,9 +38,21 @@ export class TemplateEditor extends Component<ITemplateEditorProps, ITemplateEdi
     });
   }
 
+  private onColorChanged(color: string) {
+    this.setState({
+      template: Object.assign({}, this.state.template, {
+        color: color
+      })
+    });
+  }
+
   render() {
     return (
-        <EditableLabel text={this.state.template.name} onValueChanged={v => this.onNameChanged(v)} />
+        <div>
+          <TemplateHeader {...this.state.template} onNameChanged={v => this.onNameChanged(v)} onColorChanged={v => this.onColorChanged(v)} />
+          <h1 style={{ color: this.state.template.color }}>{this.state.template.name}</h1>
+        </div>
+
     );
   }
 }
