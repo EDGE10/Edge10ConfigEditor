@@ -1,0 +1,1 @@
+# EDGE10 Configuration Editor
